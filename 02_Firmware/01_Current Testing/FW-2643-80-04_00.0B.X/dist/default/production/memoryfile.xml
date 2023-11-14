@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+  <executable name="dist/default/production/FW-2643-80-04_00.0B.X.production.elf">
+    <memory name="data">
+      <units>bytes</units>
+      <length>16384</length>
+      <used>8112</used>
+      <free>8272</free>
+    </memory>
+    <memory name="program">
+      <units>bytes</units>
+      <length>263616</length>
+      <used>106677</used>
+      <free>156939</free>
+    </memory>
+  </executable>
+</project>

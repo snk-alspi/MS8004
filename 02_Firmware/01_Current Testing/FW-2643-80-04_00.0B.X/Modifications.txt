@@ -1,0 +1,37 @@
+Modifications done
+Version 00.0B
+
+07 October 23
+1)  Added variable "ch" for channel 
+2) In "measurement.c" function "load_tx_buf" changed to load tx buffer dynamically(respective channel) instead of fixed values.
+3) In "void Read_Mes_Parameter(void)" values modified to read respective channels.
+4) In "void Write_UTM_Parameter(void)" values modified to write respective channels.
+5) In "void Write_UTG_Parameter(void)" values modified to write respective channels.
+6) In "void Write_UTT_Parameter(void)" values modified to write respective channels.
+
+08 October 23
+1) Added in HART C180 in file cmd_execute, a unsigned character for channel
+2) All HART Commands added with variable channel
+3) Output variables added to accommodate 4 channels.
+
+09 October 23
+1) In measurement.c the function execute measurement modified to measure all the four channels one by one
+2) in "App_WH_Types.h" Line no.173 to no.179 Request size increased by one for channel
+3) in "App_WH_Types.h" Request and Response structures changed.
+
+10 October 23
+In "App_WH_User.C" file Line no.1663
+1) Device Variable_0 -> mat_thick_raw_0
+2) Device Variable_1 -> mat_thick_raw_1
+3) Device Variable_2 -> mat_thick_raw_2
+4) Device Variable_3 -> mat_thick_raw_3
+5) In "MS_Process.c" Line No. 36 should be corrected to mat_thick_raw_0
+
+
+
+
+Work left out for now:
+1) In "MS_Process.c" Line No. 36 should be corrected as per Bala's instruction
+2) In "App_WH_User.c" Line No. 1663 to 1682 should be corrected as per Bala's instruction - done
+3) 
+

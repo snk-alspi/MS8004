@@ -1,0 +1,7 @@
+Modifications done
+1)  Added variable "ch" for channel 
+2) In "measurement.c" function "load_tx_buf" changed to load tx buffer dynamically(respective channel) instead of fixed values.
+3)  In "void Read_Mes_Parameter(void)" values modified to read respective channels.
+4) In "void Write_UTM_Parameter(void)" values modified to write respective channels.
+5) In "void Write_UTG_Parameter(void)" values modified to write respective channels.
+6) In "void Write_UTT_Parameter(void)" values modified to write respective channels.

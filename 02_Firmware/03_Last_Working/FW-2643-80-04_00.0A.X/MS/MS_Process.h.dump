@@ -1,0 +1,566 @@
+<?xml version="1.0"?>
+<dumps>
+  <platform name="win32A" char_bit="8" short_bit="16" int_bit="32" long_bit="32" long_long_bit="64" pointer_bit="32"/>
+  <rawtokens>
+    <file index="0" name="MS/MS_Process.h"/>
+    <file index="1" name="Platform/interrupt_callbacks.h"/>
+    <file index="2" name="Global/typedef.h"/>
+    <file index="3" name="Platform/timers.h"/>
+    <tok fileIndex="0" linenr="1" column="1" str="#"/>
+    <tok fileIndex="0" linenr="1" column="2" str="ifndef"/>
+    <tok fileIndex="0" linenr="1" column="9" str="_MS_PROCESS_H_"/>
+    <tok fileIndex="0" linenr="2" column="1" str="#"/>
+    <tok fileIndex="0" linenr="2" column="2" str="define"/>
+    <tok fileIndex="0" linenr="2" column="9" str="_MS_PROCESS_H_"/>
+    <tok fileIndex="0" linenr="4" column="1" str="#"/>
+    <tok fileIndex="0" linenr="4" column="2" str="include"/>
+    <tok fileIndex="0" linenr="4" column="10" str="&quot;../Platform/interrupt_callbacks.h&quot;"/>
+    <tok fileIndex="0" linenr="5" column="1" str="#"/>
+    <tok fileIndex="0" linenr="5" column="2" str="include"/>
+    <tok fileIndex="0" linenr="5" column="10" str="&quot;../Global/typedef.h&quot;"/>
+    <tok fileIndex="0" linenr="7" column="1" str="/**************************************************************************************************                                            CONSTANTS**************************************************************************************************/"/>
+    <tok fileIndex="0" linenr="10" column="1" str="// In Sleep = Full Instrument = 115 uA at 7.2 V"/>
+    <tok fileIndex="0" linenr="11" column="1" str="//x        = 52 =&gt; HART Board      = 125 uA at 3.0 V"/>
+    <tok fileIndex="0" linenr="12" column="1" str="//   xx= 14 =&gt; RF WISA Board   =  30 uA at 3.3 V"/>
+    <tok fileIndex="0" linenr="13" column="1" str="//     xx= 49 =&gt; *App Board calc = 118 uA at 3.0 V"/>
+    <tok fileIndex="0" linenr="14" column="1" str="#"/>
+    <tok fileIndex="0" linenr="14" column="2" str="define"/>
+    <tok fileIndex="0" linenr="14" column="9" str="SLEEP_CHARGE_100_SECONDS"/>
+    <tok fileIndex="0" linenr="14" column="41" str="("/>
+    <tok fileIndex="0" linenr="14" column="42" str="("/>
+    <tok fileIndex="0" linenr="14" column="43" str="unsigned"/>
+    <tok fileIndex="0" linenr="14" column="52" str="long"/>
+    <tok fileIndex="0" linenr="14" column="56" str=")"/>
+    <tok fileIndex="0" linenr="14" column="57" str="10"/>
+    <tok fileIndex="0" linenr="14" column="59" str=")"/>
+    <tok fileIndex="0" linenr="14" column="73" str="// sleep current = (HART) 52 uA + (App) 49 uA = 101 uA =&gt; 0.1 mA =&gt; for every 100 seconds 10mC"/>
+    <tok fileIndex="0" linenr="15" column="1" str="#"/>
+    <tok fileIndex="0" linenr="15" column="2" str="define"/>
+    <tok fileIndex="0" linenr="15" column="9" str="ACTIVE_CHARGE"/>
+    <tok fileIndex="0" linenr="15" column="41" str="("/>
+    <tok fileIndex="0" linenr="15" column="42" str="("/>
+    <tok fileIndex="0" linenr="15" column="43" str="unsigned"/>
+    <tok fileIndex="0" linenr="15" column="52" str="long"/>
+    <tok fileIndex="0" linenr="15" column="56" str=")"/>
+    <tok fileIndex="0" linenr="15" column="58" str="6"/>
+    <tok fileIndex="0" linenr="15" column="59" str=")"/>
+    <tok fileIndex="0" linenr="15" column="73" str="// Controller when active executing code draws about 5.65 mA according with measurements =&gt; 6mC"/>
+    <tok fileIndex="0" linenr="17" column="1" str="// we are using 10% derated values"/>
+    <tok fileIndex="0" linenr="18" column="1" str="#"/>
+    <tok fileIndex="0" linenr="18" column="2" str="define"/>
+    <tok fileIndex="0" linenr="18" column="9" str="BATTERY_CAPACITY"/>
+    <tok fileIndex="0" linenr="18" column="42" str="("/>
+    <tok fileIndex="0" linenr="18" column="43" str="("/>
+    <tok fileIndex="0" linenr="18" column="44" str="unsigned"/>
+    <tok fileIndex="0" linenr="18" column="53" str="long"/>
+    <tok fileIndex="0" linenr="18" column="57" str=")"/>
+    <tok fileIndex="0" linenr="18" column="59" str="61560000"/>
+    <tok fileIndex="0" linenr="18" column="67" str=")"/>
+    <tok fileIndex="0" linenr="18" column="73" str="// mColoumbs = 19A * 3600sec * 1000 (mili)"/>
+    <tok fileIndex="0" linenr="19" column="73" str="// 68,400,000 * 0.9 = 61,560,000 = derated with 10%"/>
+    <tok fileIndex="0" linenr="21" column="1" str="#"/>
+    <tok fileIndex="0" linenr="21" column="2" str="define"/>
+    <tok fileIndex="0" linenr="21" column="9" str="LIFE_EXPECTANCY_HOURS_END_DEV"/>
+    <tok fileIndex="0" linenr="21" column="42" str="("/>
+    <tok fileIndex="0" linenr="21" column="43" str="("/>
+    <tok fileIndex="0" linenr="21" column="44" str="unsigned"/>
+    <tok fileIndex="0" linenr="21" column="53" str="long"/>
+    <tok fileIndex="0" linenr="21" column="57" str=")"/>
+    <tok fileIndex="0" linenr="21" column="59" str="43800"/>
+    <tok fileIndex="0" linenr="21" column="64" str=")"/>
+    <tok fileIndex="0" linenr="21" column="73" str="// 5 years worth of hours - (365*24*5) - for end device"/>
+    <tok fileIndex="0" linenr="22" column="1" str="#"/>
+    <tok fileIndex="0" linenr="22" column="2" str="define"/>
+    <tok fileIndex="0" linenr="22" column="9" str="LIFE_EXPECTANCY_HOURS_ROUTER_DEV"/>
+    <tok fileIndex="0" linenr="22" column="42" str="("/>
+    <tok fileIndex="0" linenr="22" column="43" str="("/>
+    <tok fileIndex="0" linenr="22" column="44" str="unsigned"/>
+    <tok fileIndex="0" linenr="22" column="53" str="long"/>
+    <tok fileIndex="0" linenr="22" column="57" str=")"/>
+    <tok fileIndex="0" linenr="22" column="59" str="35040"/>
+    <tok fileIndex="0" linenr="22" column="64" str=")"/>
+    <tok fileIndex="0" linenr="22" column="73" str="// 4 years worth of hours - (365*24*4) - router device"/>
+    <tok fileIndex="0" linenr="25" column="1" str="void"/>
+    <tok fileIndex="0" linenr="25" column="6" str="MS_Task"/>
+    <tok fileIndex="0" linenr="25" column="13" str="("/>
+    <tok fileIndex="0" linenr="25" column="14" str="void"/>
+    <tok fileIndex="0" linenr="25" column="18" str=")"/>
+    <tok fileIndex="0" linenr="25" column="19" str=";"/>
+    <tok fileIndex="0" linenr="26" column="1" str="void"/>
+    <tok fileIndex="0" linenr="26" column="6" str="CalculateLifeExpectancy"/>
+    <tok fileIndex="0" linenr="26" column="29" str="("/>
+    <tok fileIndex="0" linenr="26" column="30" str=")"/>
+    <tok fileIndex="0" linenr="26" column="31" str=";"/>
+    <tok fileIndex="0" linenr="27" column="1" str="uint8"/>
+    <tok fileIndex="0" linenr="27" column="7" str="ResetBatteryLife"/>
+    <tok fileIndex="0" linenr="27" column="23" str="("/>
+    <tok fileIndex="0" linenr="27" column="24" str=")"/>
+    <tok fileIndex="0" linenr="27" column="25" str=";"/>
+    <tok fileIndex="0" linenr="28" column="1" str="void"/>
+    <tok fileIndex="0" linenr="28" column="6" str="ResetRadioCharge"/>
+    <tok fileIndex="0" linenr="28" column="22" str="("/>
+    <tok fileIndex="0" linenr="28" column="23" str="void"/>
+    <tok fileIndex="0" linenr="28" column="27" str=")"/>
+    <tok fileIndex="0" linenr="28" column="28" str=";"/>
+    <tok fileIndex="0" linenr="30" column="1" str="#"/>
+    <tok fileIndex="0" linenr="30" column="2" str="endif"/>
+    <tok fileIndex="0" linenr="30" column="8" str="/* _MS_PROCESS_H_ */"/>
+  </rawtokens>
+  <suppressions>
+  </suppressions>
+<dump cfg="">
+  <standards>
+    <c version="c11"/>
+    <cpp version="c++20"/>
+  </standards>
+  <directivelist>
+    <directive file="MS/MS_Process.h" linenr="1" str="#ifndef _MS_PROCESS_H_"/>
+    <directive file="MS/MS_Process.h" linenr="2" str="#define _MS_PROCESS_H_"/>
+    <directive file="MS/MS_Process.h" linenr="4" str="#include &quot;../Platform/interrupt_callbacks.h&quot;"/>
+    <directive file="MS/MS_Process.h" linenr="5" str="#include &quot;../Global/typedef.h&quot;"/>
+    <directive file="MS/MS_Process.h" linenr="14" str="#define SLEEP_CHARGE_100_SECONDS ((unsigned long)10)"/>
+    <directive file="MS/MS_Process.h" linenr="15" str="#define ACTIVE_CHARGE ((unsigned long) 6)"/>
+    <directive file="MS/MS_Process.h" linenr="18" str="#define BATTERY_CAPACITY ((unsigned long) 61560000)"/>
+    <directive file="MS/MS_Process.h" linenr="21" str="#define LIFE_EXPECTANCY_HOURS_END_DEV ((unsigned long) 43800)"/>
+    <directive file="MS/MS_Process.h" linenr="22" str="#define LIFE_EXPECTANCY_HOURS_ROUTER_DEV ((unsigned long) 35040)"/>
+    <directive file="MS/MS_Process.h" linenr="30" str="#endif"/>
+    <directive file="Global/typedef.h" linenr="8" str="#ifndef TYPEDEF_H"/>
+    <directive file="Global/typedef.h" linenr="9" str="#define TYPEDEF_H"/>
+    <directive file="Global/typedef.h" linenr="11" str="#ifdef __cplusplus"/>
+    <directive file="Global/typedef.h" linenr="13" str="#endif"/>
+    <directive file="Global/typedef.h" linenr="46" str="#define Boolean BOOL"/>
+    <directive file="Global/typedef.h" linenr="51" str="#ifndef NULL"/>
+    <directive file="Global/typedef.h" linenr="52" str="#define NULL (void *)(0)"/>
+    <directive file="Global/typedef.h" linenr="53" str="#endif"/>
+    <directive file="Global/typedef.h" linenr="57" str="#define mem_size(type, member) ( sizeof(((type *)0)-&gt;member) )"/>
+    <directive file="Global/typedef.h" linenr="60" str="#define mem_index(type, member) ( (uint16) &amp;(((type *)0)-&gt;member) )"/>
+    <directive file="Global/typedef.h" linenr="99" str="#ifdef __cplusplus"/>
+    <directive file="Global/typedef.h" linenr="101" str="#endif"/>
+    <directive file="Global/typedef.h" linenr="103" str="#endif"/>
+    <directive file="Platform/interrupt_callbacks.h" linenr="1" str="#include &quot;xc.h&quot;"/>
+    <directive file="Platform/interrupt_callbacks.h" linenr="2" str="#include &quot;timers.h&quot;"/>
+    <directive file="Platform/interrupt_callbacks.h" linenr="3" str="#include &quot;typedef.h&quot;"/>
+    <directive file="Platform/interrupt_callbacks.h" linenr="11" str="#ifndef _INTERRUPT_CALLBACKS_H_"/>
+    <directive file="Platform/interrupt_callbacks.h" linenr="12" str="#define _INTERRUPT_CALLBACKS_H_"/>
+    <directive file="Platform/interrupt_callbacks.h" linenr="14" str="#ifdef __cplusplus"/>
+    <directive file="Platform/interrupt_callbacks.h" linenr="16" str="#endif"/>
+    <directive file="Platform/interrupt_callbacks.h" linenr="25" str="#ifdef __cplusplus"/>
+    <directive file="Platform/interrupt_callbacks.h" linenr="27" str="#endif"/>
+    <directive file="Platform/interrupt_callbacks.h" linenr="29" str="#endif"/>
+    <directive file="Platform/timers.h" linenr="8" str="#ifndef TIMERS_H"/>
+    <directive file="Platform/timers.h" linenr="9" str="#define TIMERS_H"/>
+    <directive file="Platform/timers.h" linenr="11" str="#include &quot;xc.h&quot;"/>
+    <directive file="Platform/timers.h" linenr="12" str="#include &quot;../Global/typedef.h&quot;"/>
+    <directive file="Platform/timers.h" linenr="14" str="#ifdef __cplusplus"/>
+    <directive file="Platform/timers.h" linenr="16" str="#endif"/>
+    <directive file="Platform/timers.h" linenr="18" str="#define TMR_250MS (5398)"/>
+    <directive file="Platform/timers.h" linenr="19" str="#define TMR_25MS (uint16)(TMR_250MS / 10)"/>
+    <directive file="Platform/timers.h" linenr="21" str="#define READ_FREE_RUNNING_TIMER() {Nop();}"/>
+    <directive file="Platform/timers.h" linenr="50" str="#ifdef __cplusplus"/>
+    <directive file="Platform/timers.h" linenr="52" str="#endif"/>
+    <directive file="Platform/timers.h" linenr="54" str="#endif"/>
+  </directivelist>
+  <tokenlist>
+    <token id="047B3800" file="Global/typedef.h" linenr="40" column="9" str="enum" scope="04D33B90" type="name"/>
+    <token id="04ED0700" file="Global/typedef.h" linenr="40" column="0" str="int" scope="04D33B90" type="name" originalName="BOOL"/>
+    <token id="04C91BF8" file="Global/typedef.h" linenr="41" column="1" str="{" scope="04D33B90" link="04C91F38"/>
+    <token id="04C91DF8" file="Global/typedef.h" linenr="42" column="3" str="FALSE" scope="04D33B90" type="name" astParent="04C919F8"/>
+    <token id="04C919F8" file="Global/typedef.h" linenr="42" column="9" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04C91C78" astOperand1="04C91DF8" astOperand2="04C91BB8"/>
+    <token id="04C91BB8" file="Global/typedef.h" linenr="42" column="11" str="0" scope="04D33B90" type="number" isInt="True" values="016B8AC8" astParent="04C919F8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04C91C78" file="Global/typedef.h" linenr="42" column="12" str="," scope="04D33B90" astOperand1="04C919F8" astOperand2="04C91838"/>
+    <token id="04C91CB8" file="Global/typedef.h" linenr="43" column="3" str="TRUE" scope="04D33B90" type="name" astParent="04C91838"/>
+    <token id="04C91838" file="Global/typedef.h" linenr="43" column="9" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04C91C78" astOperand1="04C91CB8" astOperand2="04C91CF8"/>
+    <token id="04C91CF8" file="Global/typedef.h" linenr="43" column="11" str="1" scope="04D33B90" type="number" isInt="True" values="016B8A68" astParent="04C91838" valueType-type="int" valueType-sign="signed"/>
+    <token id="04C91F38" file="Global/typedef.h" linenr="44" column="1" str="}" scope="04D33B90" link="04C91BF8"/>
+    <token id="04ED0240" file="Global/typedef.h" linenr="44" column="0" str=";" scope="04D33B90"/>
+    <token id="04ED0800" file="Global/typedef.h" linenr="65" column="9" str="enum" scope="04D33B90" type="name"/>
+    <token id="04ED0080" file="Global/typedef.h" linenr="65" column="0" str="SC" scope="04D33B90" type="name"/>
+    <token id="04C91D38" file="Global/typedef.h" linenr="66" column="1" str="{" scope="04D33B90" link="04AA5538"/>
+    <token id="04C91B38" file="Global/typedef.h" linenr="67" column="5" str="SUCCESS" scope="04D33B90" type="name" astParent="04C91A78"/>
+    <token id="04C91A78" file="Global/typedef.h" linenr="67" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04C91E38" astOperand1="04C91B38" astOperand2="04C91B78"/>
+    <token id="04C91B78" file="Global/typedef.h" linenr="67" column="25" str="0" scope="04D33B90" type="number" isInt="True" values="016B89C8" astParent="04C91A78" valueType-type="int" valueType-sign="signed"/>
+    <token id="04C91E38" file="Global/typedef.h" linenr="67" column="26" str="," scope="04D33B90" astParent="04C91D78" astOperand1="04C91A78" astOperand2="04C91DB8"/>
+    <token id="04C918F8" file="Global/typedef.h" linenr="68" column="5" str="UNSPECIFIED_ERROR" scope="04D33B90" type="name" astParent="04C91DB8"/>
+    <token id="04C91DB8" file="Global/typedef.h" linenr="68" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04C91E38" astOperand1="04C918F8" astOperand2="04C919B8"/>
+    <token id="04C919B8" file="Global/typedef.h" linenr="68" column="25" str="1" scope="04D33B90" type="number" isInt="True" values="016B8A88" astParent="04C91DB8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04C91D78" file="Global/typedef.h" linenr="68" column="26" str="," scope="04D33B90" astParent="04C91F78" astOperand1="04C91E38" astOperand2="04C91EB8"/>
+    <token id="04C91E78" file="Global/typedef.h" linenr="70" column="5" str="WRITE_ONLY" scope="04D33B90" type="name" astParent="04C91EB8"/>
+    <token id="04C91EB8" file="Global/typedef.h" linenr="70" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04C91D78" astOperand1="04C91E78" astOperand2="04C91EF8"/>
+    <token id="04C91EF8" file="Global/typedef.h" linenr="70" column="25" str="3" scope="04D33B90" type="number" isInt="True" values="016B89D8" astParent="04C91EB8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04C91F78" file="Global/typedef.h" linenr="70" column="26" str="," scope="04D33B90" astParent="04C91078" astOperand1="04C91D78" astOperand2="04C918B8"/>
+    <token id="04C91878" file="Global/typedef.h" linenr="71" column="5" str="INVALID_PARAMETER" scope="04D33B90" type="name" astParent="04C918B8"/>
+    <token id="04C918B8" file="Global/typedef.h" linenr="71" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04C91F78" astOperand1="04C91878" astOperand2="04C91A38"/>
+    <token id="04C91A38" file="Global/typedef.h" linenr="71" column="25" str="4" scope="04D33B90" type="number" isInt="True" values="016B8AD8" astParent="04C918B8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04C91078" file="Global/typedef.h" linenr="71" column="26" str="," scope="04D33B90" astParent="04C91038" astOperand1="04C91F78" astOperand2="04C915B8"/>
+    <token id="04C91378" file="Global/typedef.h" linenr="72" column="5" str="INVALID_ADDRESS" scope="04D33B90" type="name" astParent="04C915B8"/>
+    <token id="04C915B8" file="Global/typedef.h" linenr="72" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04C91078" astOperand1="04C91378" astOperand2="04C914F8"/>
+    <token id="04C914F8" file="Global/typedef.h" linenr="72" column="25" str="5" scope="04D33B90" type="number" isInt="True" values="016B87D8" astParent="04C915B8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04C91038" file="Global/typedef.h" linenr="72" column="26" str="," scope="04D33B90" astParent="04C91478" astOperand1="04C91078" astOperand2="04C910B8"/>
+    <token id="04C915F8" file="Global/typedef.h" linenr="73" column="5" str="DUPLICATE" scope="04D33B90" type="name" astParent="04C910B8"/>
+    <token id="04C910B8" file="Global/typedef.h" linenr="73" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04C91038" astOperand1="04C915F8" astOperand2="04C91538"/>
+    <token id="04C91538" file="Global/typedef.h" linenr="73" column="25" str="6" scope="04D33B90" type="number" isInt="True" values="016B8898" astParent="04C910B8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04C91478" file="Global/typedef.h" linenr="73" column="26" str="," scope="04D33B90" astParent="04C91578" astOperand1="04C91038" astOperand2="04C91338"/>
+    <token id="04C910F8" file="Global/typedef.h" linenr="74" column="5" str="OUT_OF_MEMORY" scope="04D33B90" type="name" astParent="04C91338"/>
+    <token id="04C91338" file="Global/typedef.h" linenr="74" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04C91478" astOperand1="04C910F8" astOperand2="04C913B8"/>
+    <token id="04C913B8" file="Global/typedef.h" linenr="74" column="25" str="7" scope="04D33B90" type="number" isInt="True" values="016B8728" astParent="04C91338" valueType-type="int" valueType-sign="signed"/>
+    <token id="04C91578" file="Global/typedef.h" linenr="74" column="26" str="," scope="04D33B90" astParent="04C911B8" astOperand1="04C91478" astOperand2="04C91178"/>
+    <token id="04C91138" file="Global/typedef.h" linenr="75" column="5" str="UID_OUT_OF_RANGE" scope="04D33B90" type="name" astParent="04C91178"/>
+    <token id="04C91178" file="Global/typedef.h" linenr="75" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04C91578" astOperand1="04C91138" astOperand2="04C913F8"/>
+    <token id="04C913F8" file="Global/typedef.h" linenr="75" column="25" str="8" scope="04D33B90" type="number" isInt="True" values="016B8908" astParent="04C91178" valueType-type="int" valueType-sign="signed"/>
+    <token id="04C911B8" file="Global/typedef.h" linenr="75" column="26" str="," scope="04D33B90" astParent="04C91678" astOperand1="04C91578" astOperand2="04C911F8"/>
+    <token id="04C91638" file="Global/typedef.h" linenr="76" column="5" str="DATA_TOO_LONG" scope="04D33B90" type="name" astParent="04C911F8"/>
+    <token id="04C911F8" file="Global/typedef.h" linenr="76" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04C911B8" astOperand1="04C91638" astOperand2="04C91438"/>
+    <token id="04C91438" file="Global/typedef.h" linenr="76" column="25" str="9" scope="04D33B90" type="number" isInt="True" values="016B8798" astParent="04C911F8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04C91678" file="Global/typedef.h" linenr="76" column="26" str="," scope="04D33B90" astParent="04C91738" astOperand1="04C911B8" astOperand2="04C916B8"/>
+    <token id="04C91238" file="Global/typedef.h" linenr="77" column="5" str="NO_CHANNEL" scope="04D33B90" type="name" astParent="04C916B8"/>
+    <token id="04C916B8" file="Global/typedef.h" linenr="77" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04C91678" astOperand1="04C91238" astOperand2="04C916F8"/>
+    <token id="04C916F8" file="Global/typedef.h" linenr="77" column="25" str="10" scope="04D33B90" type="number" isInt="True" values="016B87B8" astParent="04C916B8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04C91738" file="Global/typedef.h" linenr="77" column="27" str="," scope="04D33B90" astParent="04C91778" astOperand1="04C91678" astOperand2="04C914B8"/>
+    <token id="04C91278" file="Global/typedef.h" linenr="78" column="5" str="NO_TIMESLOT" scope="04D33B90" type="name" astParent="04C914B8"/>
+    <token id="04C914B8" file="Global/typedef.h" linenr="78" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04C91738" astOperand1="04C91278" astOperand2="04C912F8"/>
+    <token id="04C912F8" file="Global/typedef.h" linenr="78" column="25" str="11" scope="04D33B90" type="number" isInt="True" values="016B8818" astParent="04C914B8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04C91778" file="Global/typedef.h" linenr="78" column="27" str="," scope="04D33B90" astParent="04AA58B8" astOperand1="04C91738" astOperand2="04C912B8"/>
+    <token id="04C917B8" file="Global/typedef.h" linenr="81" column="5" str="NO_LINK" scope="04D33B90" type="name" astParent="04C912B8"/>
+    <token id="04C912B8" file="Global/typedef.h" linenr="81" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04C91778" astOperand1="04C917B8" astOperand2="04C917F8"/>
+    <token id="04C917F8" file="Global/typedef.h" linenr="81" column="25" str="12" scope="04D33B90" type="number" isInt="True" values="016B87E8" astParent="04C912B8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04AA58B8" file="Global/typedef.h" linenr="81" column="27" str="," scope="04D33B90" astParent="04AA5978" astOperand1="04C91778" astOperand2="04AA5BF8"/>
+    <token id="04AA5AB8" file="Global/typedef.h" linenr="82" column="5" str="RX_LINK" scope="04D33B90" type="name" astParent="04AA5BF8"/>
+    <token id="04AA5BF8" file="Global/typedef.h" linenr="82" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04AA58B8" astOperand1="04AA5AB8" astOperand2="04AA5A78"/>
+    <token id="04AA5A78" file="Global/typedef.h" linenr="82" column="25" str="13" scope="04D33B90" type="number" isInt="True" values="016B87C8" astParent="04AA5BF8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04AA5978" file="Global/typedef.h" linenr="82" column="27" str="," scope="04D33B90" astParent="04AA5B38" astOperand1="04AA58B8" astOperand2="04AA5EF8"/>
+    <token id="04AA5AF8" file="Global/typedef.h" linenr="83" column="5" str="TX_LINK" scope="04D33B90" type="name" astParent="04AA5EF8"/>
+    <token id="04AA5EF8" file="Global/typedef.h" linenr="83" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04AA5978" astOperand1="04AA5AF8" astOperand2="04AA5CF8"/>
+    <token id="04AA5CF8" file="Global/typedef.h" linenr="83" column="25" str="14" scope="04D33B90" type="number" isInt="True" values="016B88D8" astParent="04AA5EF8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04AA5B38" file="Global/typedef.h" linenr="83" column="27" str="," scope="04D33B90" astParent="04AA59B8" astOperand1="04AA5978" astOperand2="04AA58F8"/>
+    <token id="04AA5CB8" file="Global/typedef.h" linenr="84" column="5" str="NO_ROUTE" scope="04D33B90" type="name" astParent="04AA58F8"/>
+    <token id="04AA58F8" file="Global/typedef.h" linenr="84" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04AA5B38" astOperand1="04AA5CB8" astOperand2="04AA5878"/>
+    <token id="04AA5878" file="Global/typedef.h" linenr="84" column="25" str="15" scope="04D33B90" type="number" isInt="True" values="016B8828" astParent="04AA58F8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04AA59B8" file="Global/typedef.h" linenr="84" column="27" str="," scope="04D33B90" astParent="04AA5938" astOperand1="04AA5B38" astOperand2="04AA5D78"/>
+    <token id="04AA5DF8" file="Global/typedef.h" linenr="85" column="5" str="NO_CONTRACT" scope="04D33B90" type="name" astParent="04AA5D78"/>
+    <token id="04AA5D78" file="Global/typedef.h" linenr="85" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04AA59B8" astOperand1="04AA5DF8" astOperand2="04AA5838"/>
+    <token id="04AA5838" file="Global/typedef.h" linenr="85" column="25" str="16" scope="04D33B90" type="number" isInt="True" values="016B8738" astParent="04AA5D78" valueType-type="int" valueType-sign="signed"/>
+    <token id="04AA5938" file="Global/typedef.h" linenr="85" column="27" str="," scope="04D33B90" astParent="04AA5BB8" astOperand1="04AA59B8" astOperand2="04AA5B78"/>
+    <token id="04AA5F78" file="Global/typedef.h" linenr="86" column="5" str="NO_UID" scope="04D33B90" type="name" astParent="04AA5B78"/>
+    <token id="04AA5B78" file="Global/typedef.h" linenr="86" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04AA5938" astOperand1="04AA5F78" astOperand2="04AA5FB8"/>
+    <token id="04AA5FB8" file="Global/typedef.h" linenr="86" column="25" str="17" scope="04D33B90" type="number" isInt="True" values="016B8768" astParent="04AA5B78" valueType-type="int" valueType-sign="signed"/>
+    <token id="04AA5BB8" file="Global/typedef.h" linenr="86" column="27" str="," scope="04D33B90" astParent="04AA5E78" astOperand1="04AA5938" astOperand2="04AA59F8"/>
+    <token id="04AA5D38" file="Global/typedef.h" linenr="87" column="5" str="TOO_BIG" scope="04D33B90" type="name" astParent="04AA59F8"/>
+    <token id="04AA59F8" file="Global/typedef.h" linenr="87" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04AA5BB8" astOperand1="04AA5D38" astOperand2="04AA5C38"/>
+    <token id="04AA5C38" file="Global/typedef.h" linenr="87" column="25" str="18" scope="04D33B90" type="number" isInt="True" values="016B8868" astParent="04AA59F8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04AA5E78" file="Global/typedef.h" linenr="87" column="27" str="," scope="04D33B90" astParent="04AA5E38" astOperand1="04AA5BB8" astOperand2="04AA5C78"/>
+    <token id="04AA5A38" file="Global/typedef.h" linenr="88" column="5" str="QUEUE_FULL" scope="04D33B90" type="name" astParent="04AA5C78"/>
+    <token id="04AA5C78" file="Global/typedef.h" linenr="88" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04AA5E78" astOperand1="04AA5A38" astOperand2="04AA5DB8"/>
+    <token id="04AA5DB8" file="Global/typedef.h" linenr="88" column="25" str="19" scope="04D33B90" type="number" isInt="True" values="016B8788" astParent="04AA5C78" valueType-type="int" valueType-sign="signed"/>
+    <token id="04AA5E38" file="Global/typedef.h" linenr="88" column="27" str="," scope="04D33B90" astParent="04AA52F8" astOperand1="04AA5E78" astOperand2="04AA5F38"/>
+    <token id="04AA5EB8" file="Global/typedef.h" linenr="89" column="5" str="NACK" scope="04D33B90" type="name" astParent="04AA5F38"/>
+    <token id="04AA5F38" file="Global/typedef.h" linenr="89" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04AA5E38" astOperand1="04AA5EB8" astOperand2="04AA53F8"/>
+    <token id="04AA53F8" file="Global/typedef.h" linenr="89" column="25" str="20" scope="04D33B90" type="number" isInt="True" values="016B8878" astParent="04AA5F38" valueType-type="int" valueType-sign="signed"/>
+    <token id="04AA52F8" file="Global/typedef.h" linenr="89" column="27" str="," scope="04D33B90" astParent="04AA57F8" astOperand1="04AA5E38" astOperand2="04AA5378"/>
+    <token id="04AA5438" file="Global/typedef.h" linenr="90" column="5" str="TIMEOUT" scope="04D33B90" type="name" astParent="04AA5378"/>
+    <token id="04AA5378" file="Global/typedef.h" linenr="90" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04AA52F8" astOperand1="04AA5438" astOperand2="04AA52B8"/>
+    <token id="04AA52B8" file="Global/typedef.h" linenr="90" column="25" str="21" scope="04D33B90" type="number" isInt="True" values="016B8748" astParent="04AA5378" valueType-type="int" valueType-sign="signed"/>
+    <token id="04AA57F8" file="Global/typedef.h" linenr="90" column="27" str="," scope="04D33B90" astParent="04AA5578" astOperand1="04AA52F8" astOperand2="04AA57B8"/>
+    <token id="04AA5038" file="Global/typedef.h" linenr="91" column="5" str="MSG_NOT_FOUND" scope="04D33B90" type="name" astParent="04AA57B8"/>
+    <token id="04AA57B8" file="Global/typedef.h" linenr="91" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04AA57F8" astOperand1="04AA5038" astOperand2="04AA5078"/>
+    <token id="04AA5078" file="Global/typedef.h" linenr="91" column="25" str="22" scope="04D33B90" type="number" isInt="True" values="016B87F8" astParent="04AA57B8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04AA5578" file="Global/typedef.h" linenr="91" column="27" str="," scope="04D33B90" astParent="04AA54B8" astOperand1="04AA57F8" astOperand2="04AA50B8"/>
+    <token id="04AA55B8" file="Global/typedef.h" linenr="92" column="5" str="NO_GRAPH" scope="04D33B90" type="name" astParent="04AA50B8"/>
+    <token id="04AA50B8" file="Global/typedef.h" linenr="92" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04AA5578" astOperand1="04AA55B8" astOperand2="04AA5478"/>
+    <token id="04AA5478" file="Global/typedef.h" linenr="92" column="25" str="23" scope="04D33B90" type="number" isInt="True" values="016B8758" astParent="04AA50B8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04AA54B8" file="Global/typedef.h" linenr="92" column="27" str="," scope="04D33B90" astParent="04AA56F8" astOperand1="04AA5578" astOperand2="04AA50F8"/>
+    <token id="04AA5338" file="Global/typedef.h" linenr="93" column="5" str="VALUE_OUT_OF_RANGE" scope="04D33B90" type="name" astParent="04AA50F8"/>
+    <token id="04AA50F8" file="Global/typedef.h" linenr="93" column="24" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04AA54B8" astOperand1="04AA5338" astOperand2="04AA56B8"/>
+    <token id="04AA56B8" file="Global/typedef.h" linenr="93" column="26" str="24" scope="04D33B90" type="number" isInt="True" values="016B8778" astParent="04AA50F8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04AA56F8" file="Global/typedef.h" linenr="93" column="28" str="," scope="04D33B90" astOperand1="04AA54B8" astOperand2="04AA54F8"/>
+    <token id="04AA5638" file="Global/typedef.h" linenr="94" column="5" str="INVALID_SC" scope="04D33B90" type="name" astParent="04AA54F8"/>
+    <token id="04AA54F8" file="Global/typedef.h" linenr="94" column="23" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04AA56F8" astOperand1="04AA5638" astOperand2="04AA5678"/>
+    <token id="04AA5678" file="Global/typedef.h" linenr="94" column="25" str="25" scope="04D33B90" type="number" isInt="True" values="016B87A8" astParent="04AA54F8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04AA5538" file="Global/typedef.h" linenr="95" column="1" str="}" scope="04D33B90" link="04C91D38"/>
+    <token id="04ED0200" file="Global/typedef.h" linenr="95" column="0" str=";" scope="04D33B90"/>
+    <token id="04ED0440" file="Platform/timers.h" linenr="23" column="5" str="extern" scope="04D33B90" type="name"/>
+    <token id="04AA53B8" file="Platform/timers.h" linenr="23" column="0" str="char" scope="04D33B90" type="name" isUnsigned="true"/>
+    <token id="04AA5738" file="Platform/timers.h" linenr="23" column="18" str="g_ucUserTimerEventCnt" scope="04D33B90" type="name" varId="1" variable="04ED05C8" valueType-type="char" valueType-sign="unsigned"/>
+    <token id="04AA5778" file="Platform/timers.h" linenr="23" column="39" str=";" scope="04D33B90"/>
+    <token id="04AA51B8" file="Platform/timers.h" linenr="24" column="5" str="extern" scope="04D33B90" type="name"/>
+    <token id="04AA51F8" file="Platform/timers.h" linenr="24" column="12" str="volatile" scope="04D33B90" type="name"/>
+    <token id="04AA5238" file="Platform/timers.h" linenr="24" column="0" str="short" scope="04D33B90" type="name" isUnsigned="true"/>
+    <token id="04AA5278" file="Platform/timers.h" linenr="24" column="28" str="g_unRTCTime" scope="04D33B90" type="name" varId="2" variable="04ED0A48" valueType-type="short" valueType-sign="unsigned"/>
+    <token id="04D35AC8" file="Platform/timers.h" linenr="24" column="39" str=";" scope="04D33B90"/>
+    <token id="04D35C08" file="Platform/timers.h" linenr="26" column="5" str="enum" scope="04D33B90" type="name"/>
+    <token id="04D35C88" file="Platform/timers.h" linenr="26" column="10" str="STATE_TIMEOUT_IDX" scope="04D33B90" type="name"/>
+    <token id="04D35888" file="Platform/timers.h" linenr="26" column="28" str="{" scope="04D33B90" link="04D35448"/>
+    <token id="04D35908" file="Platform/timers.h" linenr="27" column="9" str="API_READY_ACTIVATION_TMO_IDX" scope="04D33B90" type="name" astParent="04D35848"/>
+    <token id="04D35848" file="Platform/timers.h" linenr="27" column="38" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04D35988" astOperand1="04D35908" astOperand2="04D35B08"/>
+    <token id="04D35B08" file="Platform/timers.h" linenr="27" column="40" str="0" scope="04D33B90" type="number" isInt="True" values="016B88E8" astParent="04D35848" valueType-type="int" valueType-sign="signed"/>
+    <token id="04D35988" file="Platform/timers.h" linenr="27" column="41" str="," scope="04D33B90" astParent="04D35FC8" astOperand1="04D35848" astOperand2="04D35CC8"/>
+    <token id="04D35A48" file="Platform/timers.h" linenr="28" column="9" str="API_AGRESIV_TMO_IDX" scope="04D33B90" type="name" astParent="04D35CC8"/>
+    <token id="04D35CC8" file="Platform/timers.h" linenr="28" column="29" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04D35988" astOperand1="04D35A48" astOperand2="04D35948"/>
+    <token id="04D35948" file="Platform/timers.h" linenr="28" column="31" str="1" scope="04D33B90" type="number" isInt="True" values="016B88C8" astParent="04D35CC8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04D35FC8" file="Platform/timers.h" linenr="28" column="32" str="," scope="04D33B90" astParent="04D35B88" astOperand1="04D35988" astOperand2="04D35D08"/>
+    <token id="04D35B48" file="Platform/timers.h" linenr="29" column="9" str="LIB_RESERVED2_TMO_IDX" scope="04D33B90" type="name" astParent="04D35D08"/>
+    <token id="04D35D08" file="Platform/timers.h" linenr="29" column="31" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04D35FC8" astOperand1="04D35B48" astOperand2="04D358C8"/>
+    <token id="04D358C8" file="Platform/timers.h" linenr="29" column="33" str="2" scope="04D33B90" type="number" isInt="True" values="016B8808" astParent="04D35D08" valueType-type="int" valueType-sign="signed"/>
+    <token id="04D35B88" file="Platform/timers.h" linenr="29" column="34" str="," scope="04D33B90" astParent="04D359C8" astOperand1="04D35FC8" astOperand2="04D35BC8"/>
+    <token id="04D35C48" file="Platform/timers.h" linenr="30" column="9" str="LIB_RESERVED3_TMO_IDX" scope="04D33B90" type="name" astParent="04D35BC8"/>
+    <token id="04D35BC8" file="Platform/timers.h" linenr="30" column="31" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04D35B88" astOperand1="04D35C48" astOperand2="04D35D88"/>
+    <token id="04D35D88" file="Platform/timers.h" linenr="30" column="33" str="3" scope="04D33B90" type="number" isInt="True" values="016B8838" astParent="04D35BC8" valueType-type="int" valueType-sign="signed"/>
+    <token id="04D359C8" file="Platform/timers.h" linenr="30" column="34" str="," scope="04D33B90" astParent="04D35D48" astOperand1="04D35B88" astOperand2="04D35A08"/>
+    <token id="04D35E48" file="Platform/timers.h" linenr="31" column="9" str="LIB_RESERVED4_TMO_IDX" scope="04D33B90" type="name" astParent="04D35A08"/>
+    <token id="04D35A08" file="Platform/timers.h" linenr="31" column="31" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04D359C8" astOperand1="04D35E48" astOperand2="04D35A88"/>
+    <token id="04D35A88" file="Platform/timers.h" linenr="31" column="33" str="4" scope="04D33B90" type="number" isInt="True" values="016B8888" astParent="04D35A08" valueType-type="int" valueType-sign="signed"/>
+    <token id="04D35D48" file="Platform/timers.h" linenr="31" column="34" str="," scope="04D33B90" astParent="04D35E88" astOperand1="04D359C8" astOperand2="04D35E08"/>
+    <token id="04D35DC8" file="Platform/timers.h" linenr="32" column="9" str="USER_RESERVED1_TMO_IDX" scope="04D33B90" type="name" astParent="04D35E08"/>
+    <token id="04D35E08" file="Platform/timers.h" linenr="32" column="32" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04D35D48" astOperand1="04D35DC8" astOperand2="04D35F08"/>
+    <token id="04D35F08" file="Platform/timers.h" linenr="32" column="34" str="5" scope="04D33B90" type="number" isInt="True" values="016B88A8" astParent="04D35E08" valueType-type="int" valueType-sign="signed"/>
+    <token id="04D35E88" file="Platform/timers.h" linenr="32" column="35" str="," scope="04D33B90" astParent="04D351C8" astOperand1="04D35D48" astOperand2="04D35F48"/>
+    <token id="04D35EC8" file="Platform/timers.h" linenr="33" column="9" str="USER_RESERVED2_TMO_IDX" scope="04D33B90" type="name" astParent="04D35F48"/>
+    <token id="04D35F48" file="Platform/timers.h" linenr="33" column="32" str="=" scope="04D33B90" type="op" isAssignmentOp="True" astParent="04D35E88" astOperand1="04D35EC8" astOperand2="04D35F88"/>
+    <token id="04D35F88" file="Platform/timers.h" linenr="33" column="34" str="6" scope="04D33B90" type="number" isInt="True" values="016B88B8" astParent="04D35F48" valueType-type="int" valueType-sign="signed"/>
+    <token id="04D351C8" file="Platform/timers.h" linenr="33" column="35" str="," scope="04D33B90" astOperand1="04D35E88" astOperand2="04D35508"/>
+    <token id="04D35508" file="Platform/timers.h" linenr="34" column="9" str="MAX_MANAGED_TIMEOUTS_NO" scope="04D33B90" type="name" astParent="04D351C8"/>
+    <token id="04D35448" file="Platform/timers.h" linenr="35" column="5" str="}" scope="04D33B90" link="04D35888"/>
+    <token id="04D35308" file="Platform/timers.h" linenr="35" column="6" str=";" scope="04D33B90"/>
+    <token id="04D35548" file="Platform/timers.h" linenr="37" column="5" str="void" scope="04D33B90" type="name"/>
+    <token id="04D35648" file="Platform/timers.h" linenr="37" column="10" str="Timer1_Init" scope="04D33B90" type="name" function="04EB9D98" astParent="04D35248"/>
+    <token id="04D35248" file="Platform/timers.h" linenr="37" column="21" str="(" scope="04D33B90" link="04D35148" astOperand1="04D35648" valueType-type="void"/>
+    <token id="04D35148" file="Platform/timers.h" linenr="37" column="26" str=")" scope="04D33B90" link="04D35248"/>
+    <token id="04D35208" file="Platform/timers.h" linenr="37" column="27" str=";" scope="04D33B90"/>
+    <token id="04D352C8" file="Platform/timers.h" linenr="38" column="5" str="void" scope="04D33B90" type="name"/>
+    <token id="04D35588" file="Platform/timers.h" linenr="38" column="10" str="Timer2_Init" scope="04D33B90" type="name" function="04EB9EF8" astParent="04D35708"/>
+    <token id="04D35708" file="Platform/timers.h" linenr="38" column="21" str="(" scope="04D33B90" link="04D350C8" astOperand1="04D35588" valueType-type="void"/>
+    <token id="04D350C8" file="Platform/timers.h" linenr="38" column="26" str=")" scope="04D33B90" link="04D35708"/>
+    <token id="04D35788" file="Platform/timers.h" linenr="38" column="27" str=";" scope="04D33B90"/>
+    <token id="04D35748" file="Platform/timers.h" linenr="39" column="5" str="void" scope="04D33B90" type="name"/>
+    <token id="04D355C8" file="Platform/timers.h" linenr="39" column="10" str="Timer3_Init" scope="04D33B90" type="name" function="04EBA4D0" astParent="04D353C8"/>
+    <token id="04D353C8" file="Platform/timers.h" linenr="39" column="21" str="(" scope="04D33B90" link="04D35608" astOperand1="04D355C8" valueType-type="void"/>
+    <token id="04D35608" file="Platform/timers.h" linenr="39" column="26" str=")" scope="04D33B90" link="04D353C8"/>
+    <token id="04D35088" file="Platform/timers.h" linenr="39" column="27" str=";" scope="04D33B90"/>
+    <token id="04D35188" file="Platform/timers.h" linenr="40" column="5" str="void" scope="04D33B90" type="name"/>
+    <token id="04D35348" file="Platform/timers.h" linenr="40" column="10" str="Timer3_Start" scope="04D33B90" type="name" function="04EBA108" astParent="04D35688"/>
+    <token id="04D35688" file="Platform/timers.h" linenr="40" column="22" str="(" scope="04D33B90" link="04D35388" astOperand1="04D35348" valueType-type="void"/>
+    <token id="04D35388" file="Platform/timers.h" linenr="40" column="23" str=")" scope="04D33B90" link="04D35688"/>
+    <token id="04D356C8" file="Platform/timers.h" linenr="40" column="24" str=";" scope="04D33B90"/>
+    <token id="04D357C8" file="Platform/timers.h" linenr="41" column="5" str="void" scope="04D33B90" type="name"/>
+    <token id="04D35408" file="Platform/timers.h" linenr="41" column="10" str="Timer3_Stop" scope="04D33B90" type="name" function="04EB9B30" astParent="04D35808"/>
+    <token id="04D35808" file="Platform/timers.h" linenr="41" column="21" str="(" scope="04D33B90" link="04D35048" astOperand1="04D35408" valueType-type="void"/>
+    <token id="04D35048" file="Platform/timers.h" linenr="41" column="22" str=")" scope="04D33B90" link="04D35808"/>
+    <token id="04D35488" file="Platform/timers.h" linenr="41" column="23" str=";" scope="04D33B90"/>
+    <token id="04B24990" file="Platform/timers.h" linenr="42" column="0" str="short" scope="04D33B90" type="name" isUnsigned="true"/>
+    <token id="04B24FD0" file="Platform/timers.h" linenr="42" column="12" str="TMR_GP_GetTmrValue" scope="04D33B90" type="name" function="04EB9F50" astParent="04B248D0"/>
+    <token id="04B248D0" file="Platform/timers.h" linenr="42" column="30" str="(" scope="04D33B90" link="04B24B50" astOperand1="04B24FD0" valueType-type="short" valueType-sign="unsigned"/>
+    <token id="04B24B50" file="Platform/timers.h" linenr="42" column="35" str=")" scope="04D33B90" link="04B248D0"/>
+    <token id="04B24CD0" file="Platform/timers.h" linenr="42" column="36" str=";" scope="04D33B90"/>
+    <token id="04B24850" file="Platform/timers.h" linenr="43" column="5" str="uint8_t" scope="04D33B90" type="name"/>
+    <token id="04B24910" file="Platform/timers.h" linenr="43" column="13" str="TMR_NotifyStartTimeout" scope="04D33B90" type="name" function="04EB9BE0" astParent="04B24BD0"/>
+    <token id="04B24BD0" file="Platform/timers.h" linenr="43" column="35" str="(" scope="04D33B90" link="04B249D0" astOperand1="04B24910" astOperand2="04B24D10" valueType-type="char" valueType-sign="unsigned"/>
+    <token id="04B24950" file="Platform/timers.h" linenr="43" column="36" str="uint8_t" scope="04D33B90" type="name"/>
+    <token id="04B24D10" file="Platform/timers.h" linenr="43" column="44" str="p_ucTimeoutIdx" scope="04D33B90" type="name" varId="3" variable="04ED0C48" astParent="04B24BD0" valueType-type="char" valueType-sign="unsigned"/>
+    <token id="04B249D0" file="Platform/timers.h" linenr="43" column="58" str=")" scope="04D33B90" link="04B24BD0"/>
+    <token id="04B24C50" file="Platform/timers.h" linenr="43" column="59" str=";" scope="04D33B90"/>
+    <token id="04B24D90" file="Platform/timers.h" linenr="44" column="5" str="int8_t" scope="04D33B90" type="name"/>
+    <token id="04B24DD0" file="Platform/timers.h" linenr="44" column="12" str="TMR_IsTimeoutExpired" scope="04D33B90" type="name" function="04EB9C38" astParent="04B24E10"/>
+    <token id="04B24E10" file="Platform/timers.h" linenr="44" column="32" str="(" scope="04D33B90" link="04B24E90" astOperand1="04B24DD0" astOperand2="04B24A50" valueType-type="char" valueType-sign="signed"/>
+    <token id="04B24E50" file="Platform/timers.h" linenr="44" column="33" str="uint8_t" scope="04D33B90" type="name"/>
+    <token id="04B24A10" file="Platform/timers.h" linenr="44" column="41" str="p_ucTimeoutIdx" scope="04D33B90" type="name" varId="4" variable="04ED0A88" astParent="04B24A50" valueType-type="char" valueType-sign="unsigned"/>
+    <token id="04B24A50" file="Platform/timers.h" linenr="44" column="55" str="," scope="04D33B90" astParent="04B24E10" astOperand1="04B24A10" astOperand2="04B24D50"/>
+    <token id="04B24A90" file="Platform/timers.h" linenr="44" column="57" str="uint16_t" scope="04D33B90" type="name"/>
+    <token id="04B24D50" file="Platform/timers.h" linenr="44" column="66" str="p_unPeriodMs" scope="04D33B90" type="name" varId="5" variable="04ED0CC8" astParent="04B24A50" valueType-type="short" valueType-sign="unsigned"/>
+    <token id="04B24E90" file="Platform/timers.h" linenr="44" column="78" str=")" scope="04D33B90" link="04B24E10"/>
+    <token id="04B24F90" file="Platform/timers.h" linenr="44" column="79" str=";" scope="04D33B90"/>
+    <token id="04B24AD0" file="Platform/interrupt_callbacks.h" linenr="18" column="1" str="extern" scope="04D33B90" type="name"/>
+    <token id="04B24B90" file="Platform/interrupt_callbacks.h" linenr="18" column="8" str="volatile" scope="04D33B90" type="name"/>
+    <token id="04B24C10" file="Platform/interrupt_callbacks.h" linenr="18" column="17" str="uint8_t" scope="04D33B90" type="name"/>
+    <token id="04B24ED0" file="Platform/interrupt_callbacks.h" linenr="18" column="25" str="MSTmr250ms" scope="04D33B90" type="name" varId="6" variable="04ED0988" valueType-type="char" valueType-sign="unsigned"/>
+    <token id="04B24C90" file="Platform/interrupt_callbacks.h" linenr="18" column="35" str=";" scope="04D33B90"/>
+    <token id="04B24F10" file="Platform/interrupt_callbacks.h" linenr="20" column="1" str="uint8_t" scope="04D33B90" type="name"/>
+    <token id="04B24F50" file="Platform/interrupt_callbacks.h" linenr="20" column="9" str="API_UART_Interrupt" scope="04D33B90" type="name" function="04EB9CE8" astParent="04B24890"/>
+    <token id="04B24890" file="Platform/interrupt_callbacks.h" linenr="20" column="27" str="(" scope="04D33B90" link="04B24510" astOperand1="04B24F50" astOperand2="04B242D0" valueType-type="char" valueType-sign="unsigned"/>
+    <token id="04B24250" file="Platform/interrupt_callbacks.h" linenr="20" column="37" str="short" scope="04D33B90" type="name" isUnsigned="true"/>
+    <token id="04B242D0" file="Platform/interrupt_callbacks.h" linenr="20" column="43" str="usIrqStatus" scope="04D33B90" type="name" varId="7" variable="04ED0888" astParent="04B24890" valueType-type="short" valueType-sign="unsigned"/>
+    <token id="04B24510" file="Platform/interrupt_callbacks.h" linenr="20" column="54" str=")" scope="04D33B90" link="04B24890"/>
+    <token id="04B24750" file="Platform/interrupt_callbacks.h" linenr="20" column="55" str=";" scope="04D33B90"/>
+    <token id="04B246D0" file="Platform/interrupt_callbacks.h" linenr="21" column="1" str="uint8_t" scope="04D33B90" type="name"/>
+    <token id="04B24150" file="Platform/interrupt_callbacks.h" linenr="21" column="9" str="API_UART_GPIO_Interrupt" scope="04D33B90" type="name" function="04EBA000" astParent="04B24710"/>
+    <token id="04B24710" file="Platform/interrupt_callbacks.h" linenr="21" column="32" str="(" scope="04D33B90" link="04B245D0" astOperand1="04B24150" valueType-type="char" valueType-sign="unsigned"/>
+    <token id="04B245D0" file="Platform/interrupt_callbacks.h" linenr="21" column="33" str=")" scope="04D33B90" link="04B24710"/>
+    <token id="04B24210" file="Platform/interrupt_callbacks.h" linenr="21" column="34" str=";" scope="04D33B90"/>
+    <token id="04B24490" file="Platform/interrupt_callbacks.h" linenr="22" column="1" str="void" scope="04D33B90" type="name"/>
+    <token id="04B24650" file="Platform/interrupt_callbacks.h" linenr="22" column="6" str="_250_MS_TIMER_InterruptCallback" scope="04D33B90" type="name" function="04EBA790" astParent="04B24190"/>
+    <token id="04B24190" file="Platform/interrupt_callbacks.h" linenr="22" column="37" str="(" scope="04D33B90" link="04B24450" astOperand1="04B24650" valueType-type="void"/>
+    <token id="04B24450" file="Platform/interrupt_callbacks.h" linenr="22" column="42" str=")" scope="04D33B90" link="04B24190"/>
+    <token id="04B24690" file="Platform/interrupt_callbacks.h" linenr="22" column="43" str=";" scope="04D33B90"/>
+    <token id="04B24310" file="Platform/interrupt_callbacks.h" linenr="23" column="1" str="void" scope="04D33B90" type="name"/>
+    <token id="04B24350" file="Platform/interrupt_callbacks.h" linenr="23" column="6" str="_25_MS_TIMER_InterruptCallback" scope="04D33B90" type="name" function="04EBAF78" astParent="04B24550"/>
+    <token id="04B24550" file="Platform/interrupt_callbacks.h" linenr="23" column="36" str="(" scope="04D33B90" link="04B244D0" astOperand1="04B24350" valueType-type="void"/>
+    <token id="04B244D0" file="Platform/interrupt_callbacks.h" linenr="23" column="41" str=")" scope="04D33B90" link="04B24550"/>
+    <token id="04B24790" file="Platform/interrupt_callbacks.h" linenr="23" column="42" str=";" scope="04D33B90"/>
+    <token id="04B247D0" file="MS/MS_Process.h" linenr="25" column="1" str="void" scope="04D33B90" type="name"/>
+    <token id="04B24390" file="MS/MS_Process.h" linenr="25" column="6" str="MS_Task" scope="04D33B90" type="name" function="04EBA9F8" astParent="04B243D0"/>
+    <token id="04B243D0" file="MS/MS_Process.h" linenr="25" column="13" str="(" scope="04D33B90" link="04B24590" astOperand1="04B24390" valueType-type="void"/>
+    <token id="04B24590" file="MS/MS_Process.h" linenr="25" column="18" str=")" scope="04D33B90" link="04B243D0"/>
+    <token id="04B24610" file="MS/MS_Process.h" linenr="25" column="19" str=";" scope="04D33B90"/>
+    <token id="04B24810" file="MS/MS_Process.h" linenr="26" column="1" str="void" scope="04D33B90" type="name"/>
+    <token id="04B24090" file="MS/MS_Process.h" linenr="26" column="6" str="CalculateLifeExpectancy" scope="04D33B90" type="name" function="04EBA8F0" astParent="04B240D0"/>
+    <token id="04B240D0" file="MS/MS_Process.h" linenr="26" column="29" str="(" scope="04D33B90" link="04B24110" astOperand1="04B24090" valueType-type="void"/>
+    <token id="04B24110" file="MS/MS_Process.h" linenr="26" column="30" str=")" scope="04D33B90" link="04B240D0"/>
+    <token id="04ED0480" file="MS/MS_Process.h" linenr="26" column="31" str=";" scope="04D33B90"/>
+    <token id="04ED0500" file="MS/MS_Process.h" linenr="27" column="0" str="char" scope="04D33B90" type="name" isUnsigned="true"/>
+    <token id="04ED00C0" file="MS/MS_Process.h" linenr="27" column="7" str="ResetBatteryLife" scope="04D33B90" type="name" function="04EBA7E8" astParent="04ED0580"/>
+    <token id="04ED0580" file="MS/MS_Process.h" linenr="27" column="23" str="(" scope="04D33B90" link="04ED0100" astOperand1="04ED00C0" valueType-type="char" valueType-sign="unsigned"/>
+    <token id="04ED0100" file="MS/MS_Process.h" linenr="27" column="24" str=")" scope="04D33B90" link="04ED0580"/>
+    <token id="04ED0180" file="MS/MS_Process.h" linenr="27" column="25" str=";" scope="04D33B90"/>
+    <token id="04ED02C0" file="MS/MS_Process.h" linenr="28" column="1" str="void" scope="04D33B90" type="name"/>
+    <token id="04ED0540" file="MS/MS_Process.h" linenr="28" column="6" str="ResetRadioCharge" scope="04D33B90" type="name" function="04EBAF20" astParent="04ED0640"/>
+    <token id="04ED0640" file="MS/MS_Process.h" linenr="28" column="22" str="(" scope="04D33B90" link="04ED01C0" astOperand1="04ED0540" valueType-type="void"/>
+    <token id="04ED01C0" file="MS/MS_Process.h" linenr="28" column="27" str=")" scope="04D33B90" link="04ED0640"/>
+    <token id="04ED06C0" file="MS/MS_Process.h" linenr="28" column="28" str=";" scope="04D33B90"/>
+  </tokenlist>
+  <scopes>
+    <scope id="04D33B90" type="Global">
+      <functionList>
+        <function id="04EB9D98" tokenDef="04D35648" name="Timer1_Init" type="Function"/>
+        <function id="04EB9EF8" tokenDef="04D35588" name="Timer2_Init" type="Function"/>
+        <function id="04EBA4D0" tokenDef="04D355C8" name="Timer3_Init" type="Function"/>
+        <function id="04EBA108" tokenDef="04D35348" name="Timer3_Start" type="Function"/>
+        <function id="04EB9B30" tokenDef="04D35408" name="Timer3_Stop" type="Function"/>
+        <function id="04EB9F50" tokenDef="04B24FD0" name="TMR_GP_GetTmrValue" type="Function"/>
+        <function id="04EB9BE0" tokenDef="04B24910" name="TMR_NotifyStartTimeout" type="Function">
+          <arg nr="1" variable="04ED0C48"/>
+        </function>
+        <function id="04EB9C38" tokenDef="04B24DD0" name="TMR_IsTimeoutExpired" type="Function">
+          <arg nr="1" variable="04ED0A88"/>
+          <arg nr="2" variable="04ED0CC8"/>
+        </function>
+        <function id="04EB9CE8" tokenDef="04B24F50" name="API_UART_Interrupt" type="Function">
+          <arg nr="1" variable="04ED0888"/>
+        </function>
+        <function id="04EBA000" tokenDef="04B24150" name="API_UART_GPIO_Interrupt" type="Function"/>
+        <function id="04EBA790" tokenDef="04B24650" name="_250_MS_TIMER_InterruptCallback" type="Function"/>
+        <function id="04EBAF78" tokenDef="04B24350" name="_25_MS_TIMER_InterruptCallback" type="Function"/>
+        <function id="04EBA9F8" tokenDef="04B24390" name="MS_Task" type="Function"/>
+        <function id="04EBA8F0" tokenDef="04B24090" name="CalculateLifeExpectancy" type="Function"/>
+        <function id="04EBA7E8" tokenDef="04ED00C0" name="ResetBatteryLife" type="Function"/>
+        <function id="04EBAF20" tokenDef="04ED0540" name="ResetRadioCharge" type="Function"/>
+      </functionList>
+      <varlist>
+        <var id="04ED05C8"/>
+        <var id="04ED0A48"/>
+        <var id="04ED0988"/>
+      </varlist>
+    </scope>
+  </scopes>
+  <variables>
+    <var id="04ED05C8" nameToken="04AA5738" typeStartToken="04AA53B8" typeEndToken="04AA53B8" access="Global" scope="04D33B90" constness="0" isArgument="false" isArray="false" isClass="false" isConst="false" isExtern="true" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="04ED0888" nameToken="04B242D0" typeStartToken="04B24250" typeEndToken="04B24250" access="Argument" scope="00000000" constness="0" isArgument="true" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="04ED0988" nameToken="04B24ED0" typeStartToken="04B24C10" typeEndToken="04B24C10" access="Global" scope="04D33B90" constness="0" isArgument="false" isArray="false" isClass="false" isConst="false" isExtern="true" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="04ED0A48" nameToken="04AA5278" typeStartToken="04AA5238" typeEndToken="04AA5238" access="Global" scope="04D33B90" constness="0" isArgument="false" isArray="false" isClass="false" isConst="false" isExtern="true" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="04ED0A88" nameToken="04B24A10" typeStartToken="04B24E50" typeEndToken="04B24E50" access="Argument" scope="00000000" constness="0" isArgument="true" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="04ED0C48" nameToken="04B24D10" typeStartToken="04B24950" typeEndToken="04B24950" access="Argument" scope="00000000" constness="0" isArgument="true" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+    <var id="04ED0CC8" nameToken="04B24D50" typeStartToken="04B24A90" typeEndToken="04B24A90" access="Argument" scope="00000000" constness="0" isArgument="true" isArray="false" isClass="false" isConst="false" isExtern="false" isLocal="false" isPointer="false" isReference="false" isStatic="false"/>
+  </variables>
+  <valueflow>
+    <values id="016B8AC8">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="016B8A68">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="016B89C8">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="016B8A88">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="016B89D8">
+      <value intvalue="3" known="true"/>
+    </values>
+    <values id="016B8AD8">
+      <value intvalue="4" known="true"/>
+    </values>
+    <values id="016B87D8">
+      <value intvalue="5" known="true"/>
+    </values>
+    <values id="016B8898">
+      <value intvalue="6" known="true"/>
+    </values>
+    <values id="016B8728">
+      <value intvalue="7" known="true"/>
+    </values>
+    <values id="016B8908">
+      <value intvalue="8" known="true"/>
+    </values>
+    <values id="016B8798">
+      <value intvalue="9" known="true"/>
+    </values>
+    <values id="016B87B8">
+      <value intvalue="10" known="true"/>
+    </values>
+    <values id="016B8818">
+      <value intvalue="11" known="true"/>
+    </values>
+    <values id="016B87E8">
+      <value intvalue="12" known="true"/>
+    </values>
+    <values id="016B87C8">
+      <value intvalue="13" known="true"/>
+    </values>
+    <values id="016B88D8">
+      <value intvalue="14" known="true"/>
+    </values>
+    <values id="016B8828">
+      <value intvalue="15" known="true"/>
+    </values>
+    <values id="016B8738">
+      <value intvalue="16" known="true"/>
+    </values>
+    <values id="016B8768">
+      <value intvalue="17" known="true"/>
+    </values>
+    <values id="016B8868">
+      <value intvalue="18" known="true"/>
+    </values>
+    <values id="016B8788">
+      <value intvalue="19" known="true"/>
+    </values>
+    <values id="016B8878">
+      <value intvalue="20" known="true"/>
+    </values>
+    <values id="016B8748">
+      <value intvalue="21" known="true"/>
+    </values>
+    <values id="016B87F8">
+      <value intvalue="22" known="true"/>
+    </values>
+    <values id="016B8758">
+      <value intvalue="23" known="true"/>
+    </values>
+    <values id="016B8778">
+      <value intvalue="24" known="true"/>
+    </values>
+    <values id="016B87A8">
+      <value intvalue="25" known="true"/>
+    </values>
+    <values id="016B88E8">
+      <value intvalue="0" known="true"/>
+    </values>
+    <values id="016B88C8">
+      <value intvalue="1" known="true"/>
+    </values>
+    <values id="016B8808">
+      <value intvalue="2" known="true"/>
+    </values>
+    <values id="016B8838">
+      <value intvalue="3" known="true"/>
+    </values>
+    <values id="016B8888">
+      <value intvalue="4" known="true"/>
+    </values>
+    <values id="016B88A8">
+      <value intvalue="5" known="true"/>
+    </values>
+    <values id="016B88B8">
+      <value intvalue="6" known="true"/>
+    </values>
+  </valueflow>
+</dump>
+</dumps>
